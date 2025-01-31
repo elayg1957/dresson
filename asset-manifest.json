@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/dresson/static/css/main.e6c13ad2.css",
+    "main.js": "/dresson/static/js/main.80398f86.js",
+    "static/js/453.4856b43f.chunk.js": "/dresson/static/js/453.4856b43f.chunk.js",
+    "index.html": "/dresson/index.html",
+    "main.e6c13ad2.css.map": "/dresson/static/css/main.e6c13ad2.css.map",
+    "main.80398f86.js.map": "/dresson/static/js/main.80398f86.js.map",
+    "453.4856b43f.chunk.js.map": "/dresson/static/js/453.4856b43f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.80398f86.js"
+  ]
+}
