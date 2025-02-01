@@ -1,6 +1,4 @@
 import React from "react";
-import "aframe";
-import "aframe-ar";
 
 function App() {
   return (
