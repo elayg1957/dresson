@@ -11,5 +11,13 @@
 </head>
 <body style="margin: 0; overflow: hidden;">
     <div id="root"></div>
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        let scene = document.querySelector("a-scene");
+        if (scene) {
+          scene.setAttribute("arjs", "sourceType: webcam; sourceWidth: 1280; sourceHeight: 720; displayWidth: 1280; displayHeight: 720; debugUIEnabled: false;");
+        }
+      });
+    </script>
 </body>
 </html>
