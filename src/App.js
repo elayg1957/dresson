@@ -1,11 +1,12 @@
 import React from "react";
-import ARViewer from "./ARViewer";
+import "aframe";
+import "aframe-ar";
 
 function App() {
   return (
-    <div>
-      <ARViewer />
-    </div>
+    <a-scene embedded arjs="sourceType: webcam;">
+      <a-entity camera></a-entity>
+    </a-scene>
   );
 }
 
