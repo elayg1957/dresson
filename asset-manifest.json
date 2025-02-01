@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/dresson/static/js/main.258d2045.js",
+    "main.js": "/dresson/static/js/main.d4f82b32.js",
     "index.html": "/dresson/index.html",
-    "main.258d2045.js.map": "/dresson/static/js/main.258d2045.js.map"
+    "main.d4f82b32.js.map": "/dresson/static/js/main.d4f82b32.js.map"
   },
   "entrypoints": [
-    "static/js/main.258d2045.js"
+    "static/js/main.d4f82b32.js"
   ]
 }
