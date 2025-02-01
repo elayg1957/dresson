@@ -4,24 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React WebAR</title>
-    
-    <!-- ✅ Updated A-Frame & AR.js -->
+
+    <!-- Corrected A-Frame & AR.js Versions -->
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/ar.js@1.7.2/aframe/build/aframe-ar.min.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
     <div id="root"></div>
 
-    <!-- ✅ Ensure the back camera is used and fixes resolution issues -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         let scene = document.querySelector("a-scene");
         if (scene) {
           scene.setAttribute("arjs", 
-            "sourceType: webcam; " + 
-            "sourceWidth: 1920; sourceHeight: 1080; " + 
-            "displayWidth: 1920; displayHeight: 1080; " + 
-            "debugUIEnabled: false;"
+            "sourceType: webcam; sourceWidth: 1280; sourceHeight: 720; displayWidth: 1280; displayHeight: 720; debugUIEnabled: false;"
           );
         }
       });
