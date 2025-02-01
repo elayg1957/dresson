@@ -5,12 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>React WebAR</title>
     
-    <!-- A-Frame & AR.js (CDN) -->
+    <!-- ✅ Updated A-Frame & AR.js -->
     <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
-    <script src="https://rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/jeromeetienne/ar.js/aframe/build/aframe-ar.min.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
     <div id="root"></div>
+
+    <!-- ✅ Ensure the back camera is used and fixes resolution issues -->
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         let scene = document.querySelector("a-scene");
@@ -19,5 +21,6 @@
         }
       });
     </script>
+
 </body>
 </html>
