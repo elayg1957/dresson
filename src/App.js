@@ -2,10 +2,24 @@ import React from "react";
 
 function App() {
   return (
-    <div>
-      <h1>WebAR App</h1>
-      <p>Point your camera to see the floating cube.</p>
-    </div>
+    <a-scene 
+      embedded 
+      arjs="sourceType: webcam; debugUIEnabled: false;"
+      vr-mode-ui="enabled: false"
+      renderer="antialias: true; colorManagement: true; highRefreshRate: true;"
+    >
+      <a-box 
+        position="0 1 -3" 
+        rotation="0 45 0" 
+        color="red" 
+        depth="0.5" 
+        height="0.5" 
+        width="0.5"
+        animation="property: position; to: 0 1.5 -3; dir: alternate; dur: 1500; loop: true"
+      ></a-box>
+
+      <a-camera></a-camera>
+    </a-scene>
   );
 }
 
