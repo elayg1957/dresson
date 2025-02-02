@@ -2,7 +2,12 @@ import React from "react";
 
 function App() {
   return (
-    <a-scene embedded arjs="sourceType: webcam;">
+    <a-scene 
+      embedded 
+      arjs="sourceType: webcam; debugUIEnabled: false;"
+      vr-mode-ui="enabled: false"
+      renderer="antialias: true; colorManagement: true; highRefreshRate: true;"
+    >
       <a-box 
         position="0 1 -3" 
         rotation="0 45 0" 
