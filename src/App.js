@@ -3,7 +3,6 @@ import React from "react";
 function App() {
   return (
     <a-scene embedded arjs="sourceType: webcam;">
-      <!-- Floating Cube -->
       <a-box 
         position="0 1 -3" 
         rotation="0 45 0" 
