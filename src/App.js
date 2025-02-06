@@ -16,7 +16,7 @@ function App() {
   return (
     <div 
       style={{
-        position: "absolute", 
+        position: "absolute",
         bottom: "20px", // Moves button towards the bottom
         left: "50%", // Centers horizontally
         transform: "translateX(-50%)", // Ensures proper centering
