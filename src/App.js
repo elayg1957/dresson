@@ -14,7 +14,15 @@ function App() {
   }, [showSet1]); // Runs when showSet1 changes
 
   return (
-    <div style={{ position: "absolute", top: "5px", left: "5px", zIndex: 100 }}>
+    <div 
+      style={{
+        position: "absolute",
+        bottom: "20px", // Moves button towards the bottom
+        left: "50%", // Centers horizontally
+        transform: "translateX(-50%)", // Ensures proper centering
+        zIndex: 100
+      }}
+    >
       <button 
         onClick={() => setShowSet1(!showSet1)}
         style={{
