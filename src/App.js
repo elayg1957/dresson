@@ -16,27 +16,23 @@ function App() {
   return (
     <div 
       style={{
-        position: "fixed",  
-        bottom: "20px",     
-        left: "50%",        
-        transform: "translateX(-50%)",  
-        zIndex: 9999,  // Ensures it's above everything
-        backgroundColor: "rgba(255, 255, 255, 0.8)", // Adds slight background to ensure visibility
-        padding: "10px",
-        borderRadius: "8px"
+        position: "absolute",
+        bottom: "20px", // Moves button towards the bottom
+        left: "50%", // Centers horizontally
+        transform: "translateX(-50%)", // Ensures proper centering
+        zIndex: 100
       }}
     >
       <button 
         onClick={() => setShowSet1(!showSet1)}
         style={{
-          padding: "12px 20px",
-          fontSize: "18px",
+          padding: "10px",
+          fontSize: "16px",
           backgroundColor: "#007BFF",
           color: "white",
           border: "none",
-          borderRadius: "8px",
-          cursor: "pointer",
-          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)"
+          borderRadius: "5px",
+          cursor: "pointer"
         }}
       >
         {showSet1 ? "Show Set 2" : "Show Set 1"}
