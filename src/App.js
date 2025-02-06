@@ -14,30 +14,57 @@ function App() {
   }, [showSet1]); // Runs when showSet1 changes
 
   return (
-    <div 
-      style={{
-        position: "absolute",
-        bottom: "20px", // Moves button towards the bottom
-        left: "50%", // Centers horizontally
-        transform: "translateX(-50%)", // Ensures proper centering
-        zIndex: 100
-      }}
-    >
-      <button 
-        onClick={() => setShowSet1(!showSet1)}
+    <>
+      {/* Left Arrow Button (Shows Set 2) */}
+      <div 
         style={{
-          padding: "10px",
-          fontSize: "16px",
-          backgroundColor: "#007BFF",
-          color: "white",
-          border: "none",
-          borderRadius: "5px",
-          cursor: "pointer"
+          position: "absolute",
+          bottom: "20px",
+          left: "20px", // Aligns to bottom-left
+          zIndex: 100
         }}
       >
-        {showSet1 ? "Show Set 2" : "Show Set 1"}
-      </button>
-    </div>
+        <button 
+          onClick={() => setShowSet1(true)}
+          style={{
+            padding: "12px 16px",
+            fontSize: "20px",
+            backgroundColor: "#007BFF",
+            color: "white",
+            border: "none",
+            borderRadius: "50%",
+            cursor: "pointer"
+          }}
+        >
+          ←
+        </button>
+      </div>
+
+      {/* Right Arrow Button (Shows Set 1) */}
+      <div 
+        style={{
+          position: "absolute",
+          bottom: "20px",
+          right: "20px", // Aligns to bottom-right
+          zIndex: 100
+        }}
+      >
+        <button 
+          onClick={() => setShowSet1(false)}
+          style={{
+            padding: "12px 16px",
+            fontSize: "20px",
+            backgroundColor: "#007BFF",
+            color: "white",
+            border: "none",
+            borderRadius: "50%",
+            cursor: "pointer"
+          }}
+        >
+          →
+        </button>
+      </div>
+    </>
   );
 }
 
