@@ -16,11 +16,14 @@ function App() {
   return (
     <div 
       style={{
-        position: "absolute",
-        bottom: "20px", // Moves button towards the bottom
-        left: "50%", // Centers horizontally
-        transform: "translateX(-50%)", // Ensures proper centering
-        zIndex: 100
+        position: "fixed",  
+        bottom: "20px",     
+        left: "50%",        
+        transform: "translateX(-50%)",  
+        zIndex: 9999,  // Ensures it's above everything
+        backgroundColor: "rgba(255, 255, 255, 0.8)", // Adds slight background to ensure visibility
+        padding: "10px",
+        borderRadius: "8px"
       }}
     >
       <button 
