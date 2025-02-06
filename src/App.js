@@ -26,13 +26,14 @@ function App() {
       <button 
         onClick={() => setShowSet1(!showSet1)}
         style={{
-          padding: "10px",
-          fontSize: "16px",
+          padding: "12px 20px",
+          fontSize: "18px",
           backgroundColor: "#007BFF",
           color: "white",
           border: "none",
-          borderRadius: "5px",
-          cursor: "pointer"
+          borderRadius: "8px",
+          cursor: "pointer",
+          boxShadow: "0px 4px 6px rgba(0, 0, 0, 0.1)"
         }}
       >
         {showSet1 ? "Show Set 2" : "Show Set 1"}
