@@ -20,7 +20,7 @@ function App() {
         style={{
           position: "absolute",
           bottom: "20px",
-          left: "20px", // Aligns to bottom-left
+          left: "20px",
           zIndex: 100,
           width: "60px"
         }}
@@ -38,7 +38,7 @@ function App() {
         style={{
           position: "absolute",
           bottom: "20px",
-          right: "20px", // Aligns to bottom-right
+          right: "20px",
           zIndex: 100,
           width: "60px"
         }}
