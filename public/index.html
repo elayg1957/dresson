@@ -3,45 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React WebAR</title>
+    <title>WebAR Floor Detection Test</title>
 
     <!-- Load A-Frame -->
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
 </head>
 <body style="margin: 0; overflow: hidden;">
 
-    <!-- React Root -->
-    <div id="root"></div>
-
-    <!-- A-Frame AR Scene -->
     <a-scene 
-      embedded 
+      xr-mode-ui="enabled: true"
       webxr="optionalFeatures: hit-test;"
       renderer="antialias: true; colorManagement: true; highRefreshRate: true;"
     >
-        <!-- Set 1: Initially Visible -->
-        <a-entity id="set1" visible="true">
-            <a-box position="-2 0 0" rotation="0 45 0" color="red"></a-box>
-            <a-box position="0 0 0" rotation="0 45 0" color="green"></a-box>
-            <a-box position="2 0 0" rotation="0 45 0" color="blue"></a-box>
-        </a-entity>
-
-        <!-- Set 2: Initially Hidden -->
-        <a-entity id="set2" visible="false">
-            <a-box position="-2 0 0" rotation="0 45 0" color="orange"></a-box>
-            <a-box position="0 0 0" rotation="0 45 0" color="white"></a-box>
-            <a-box position="2 0 0" rotation="0 45 0" color="black"></a-box>
-        </a-entity>
+        <!-- Single Test Cube (Hidden Until Floor is Found) -->
+        <a-box 
+            id="testCube"
+            visible="false"
+            color="blue"
+            depth="0.5"
+            height="0.5"
+            width="0.5"
+        ></a-box>
 
         <a-camera position="0 1.6 0"></a-camera>
     </a-scene>
 
     <script>
-        AFRAME.registerComponent('floor-placement', {
+        AFRAME.registerComponent('floor-placement-test', {
             init: function () {
                 const scene = this.el;
-                const set1 = document.getElementById("set1");
-                const set2 = document.getElementById("set2");
+                const cube = document.getElementById("testCube");
 
                 scene.addEventListener("enter-vr", () => {
                     if (navigator.xr) {
@@ -54,12 +45,8 @@
                                         const hitTestResults = frame.getHitTestResults(hitTestSource);
                                         if (hitTestResults.length > 0) {
                                             const hitPose = hitTestResults[0].getPose(referenceSpace);
-                                            
-                                            // Place both sets at the detected floor position
-                                            const positionString = `${hitPose.transform.position.x} ${hitPose.transform.position.y} ${hitPose.transform.position.z}`;
-                                            
-                                            set1.setAttribute("position", positionString);
-                                            set2.setAttribute("position", positionString);
+                                            cube.setAttribute("position", `${hitPose.transform.position.x} ${hitPose.transform.position.y} ${hitPose.transform.position.z}`);
+                                            cube.setAttribute("visible", "true");
                                         }
                                     });
                                 });
@@ -70,7 +57,7 @@
             }
         });
 
-        document.querySelector("a-scene").setAttribute("floor-placement", "");
+        document.querySelector("a-scene").setAttribute("floor-placement-test", "");
     </script>
 
 </body>
