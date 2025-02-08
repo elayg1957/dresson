@@ -22,32 +22,145 @@
       renderer="antialias: true; colorManagement: true; highRefreshRate: true;"
     >
 
-        <!-- Add a Ground Plane to Catch Shadows 
-        <a-plane position="0 0 -2" rotation="-90 0 0" width="10" height="10" color="#ccc" shadow="receive: true"></a-plane> -->
-
-        <!-- Add Lights with Shadows
-        <a-light type="directional" intensity="1" position="2 4 2" castShadow="true"></a-light>
-        <a-light type="ambient" intensity="0.5"></a-light> -->
-
-        <!-- Set 1: Initially Visible -->
+        <!-- Set 1: Furniture with Interactive Buttons -->
         <a-entity id="set1" position="0 0.5 -2" visible="true">
-            <a-gltf-model src="assets/sofa1.glb" position="0 0 -2.5" scale="0.2 0.2 0.2" rotation="0 270 0"></a-gltf-model>
-            <a-gltf-model src="assets/floor_lamp.glb" position="0.5 0 -2" scale="0.05 0.05 0.05" rotation="0 270 0"></a-gltf-model>
-            <a-gltf-model src="assets/sillion1.glb" position="-1 0 -1.8" scale="0.3 0.3 0.3" rotation="0 45 0"></a-gltf-model>
+            <!-- Sofa -->
+            <a-gltf-model 
+                src="assets/sofa1.glb" 
+                position="0 0 -2.5" 
+                scale="0.2 0.2 0.2" 
+                rotation="0 270 0">
+            </a-gltf-model>
+            <a-entity 
+                position="0 0.6 -2.5" 
+                geometry="primitive: circle; radius: 0.15" 
+                material="color: brown; shader: flat;"
+                onclick="showPopup('sofa1')"
+                text="value: ?; align: center; color: white; baseline: center;">
+            </a-entity>
+
+            <!-- Floor Lamp -->
+            <a-gltf-model 
+                src="assets/floor_lamp.glb" 
+                position="0.5 0 -2" 
+                scale="0.05 0.05 0.05" 
+                rotation="0 270 0">
+            </a-gltf-model>
+            <a-entity 
+                position="0.5 0.6 -2" 
+                geometry="primitive: circle; radius: 0.15" 
+                material="color: brown; shader: flat;"
+                onclick="showPopup('floor_lamp')"
+                text="value: ?; align: center; color: white; baseline: center;">
+            </a-entity>
+
+            <!-- Chair -->
+            <a-gltf-model 
+                src="assets/sillion1.glb" 
+                position="-1 0 -1.8" 
+                scale="0.3 0.3 0.3" 
+                rotation="0 45 0">
+            </a-gltf-model>
+            <a-entity 
+                position="-1 0.6 -1.8" 
+                geometry="primitive: circle; radius: 0.15" 
+                material="color: brown; shader: flat;"
+                onclick="showPopup('sillion1')"
+                text="value: ?; align: center; color: white; baseline: center;">
+            </a-entity>
         </a-entity>
 
-        <!-- Set 2: Initially Hidden -->
+        <!-- Set 2: Furniture with Interactive Buttons -->
         <a-entity id="set2" position="0 0.5 -2" visible="false">
-            <a-gltf-model src="assets/scan_sofa.glb" position="0 0 -2.5" scale="0.7 0.7 0.7" rotation="0 0 0"></a-gltf-model>
-            <a-gltf-model src="assets/scan_low_table.glb" position="0 0 -1.3" scale="0.5 0.5 0.5" rotation="0 0 0"></a-gltf-model>
-            <a-gltf-model src="assets/scan_couch.glb" position="-1 0 -1.8" scale="0.35 0.35 0.35" rotation="0 45 0"></a-gltf-model>
-            <a-gltf-model src="assets/scan_carpet.glb" position="0 -0.5 -2" scale="1.2 0.65 0.65" rotation="0 0 0"></a-gltf-model>
-            <a-gltf-model src="assets/floor_lamp.glb" position="-0.5 0 -2" scale="0.05 0.05 0.05" rotation="0 270 0"></a-gltf-model>
+            <!-- Scan Sofa -->
+            <a-gltf-model 
+                src="assets/scan_sofa.glb" 
+                position="0 0 -2.5" 
+                scale="0.7 0.7 0.7" 
+                rotation="0 0 0">
+            </a-gltf-model>
+            <a-entity 
+                position="0 0.6 -2.5" 
+                geometry="primitive: circle; radius: 0.15" 
+                material="color: brown; shader: flat;"
+                onclick="showPopup('scan_sofa')"
+                text="value: ?; align: center; color: white; baseline: center;">
+            </a-entity>
 
+            <!-- Low Table -->
+            <a-gltf-model 
+                src="assets/scan_low_table.glb" 
+                position="0 0 -1.3" 
+                scale="0.5 0.5 0.5" 
+                rotation="0 0 0">
+            </a-gltf-model>
+            <a-entity 
+                position="0 0.6 -1.3" 
+                geometry="primitive: circle; radius: 0.15" 
+                material="color: brown; shader: flat;"
+                onclick="showPopup('scan_low_table')"
+                text="value: ?; align: center; color: white; baseline: center;">
+            </a-entity>
+
+            <!-- Carpet -->
+            <a-gltf-model 
+                src="assets/scan_carpet.glb" 
+                position="0 -0.5 -2" 
+                scale="1.2 0.65 0.65" 
+                rotation="0 0 0">
+            </a-gltf-model>
+            <a-entity 
+                position="0 0 -2" 
+                geometry="primitive: circle; radius: 0.15" 
+                material="color: brown; shader: flat;"
+                onclick="showPopup('scan_carpet')"
+                text="value: ?; align: center; color: white; baseline: center;">
+            </a-entity>
+
+            <!-- Couch -->
+            <a-gltf-model 
+                src="assets/scan_couch.glb" 
+                position="-1 0 -1.8" 
+                scale="0.35 0.35 0.35" 
+                rotation="0 45 0">
+            </a-gltf-model>
+            <a-entity 
+                position="-1 0.6 -1.8" 
+                geometry="primitive: circle; radius: 0.15" 
+                material="color: brown; shader: flat;"
+                onclick="showPopup('scan_couch')"
+                text="value: ?; align: center; color: white; baseline: center;">
+            </a-entity>
+
+            <!-- Floor Lamp -->
+            <a-gltf-model 
+                src="assets/floor_lamp.glb" 
+                position="0.5 0 -2" 
+                scale="0.05 0.05 0.05" 
+                rotation="0 270 0">
+            </a-gltf-model>
+            <a-entity 
+                position="-0.75 0.6 -2" 
+                geometry="primitive: circle; radius: 0.15" 
+                material="color: brown; shader: flat;"
+                onclick="showPopup('floor_lamp')"
+                text="value: ?; align: center; color: white; baseline: center;">
+            </a-entity>            
         </a-entity>
+
+        <!-- Add Lights -->
+        <a-light type="directional" intensity="1" position="2 4 2" castShadow="true"></a-light>
+        <a-light type="ambient" intensity="0.5"></a-light>
 
         <a-camera></a-camera>
     </a-scene>
+
+    <!-- Popup Script -->
+    <script>
+      function showPopup(modelId) {
+        alert(`More info about: ${modelId}`);
+      }
+    </script>
 
 </body>
 </html>
