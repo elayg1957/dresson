@@ -23,7 +23,7 @@
     >
 
         <!-- Set 1: Furniture with Interactive Buttons -->
-        <a-entity id="set1" position="0 0.5 -2" visible="true">
+        <a-entity id="set2" position="0 0.5 -2" visible="true">
             <!-- Sofa -->
             <a-gltf-model 
                 src="assets/sofa1.glb" 
@@ -33,8 +33,8 @@
             </a-gltf-model>
             <a-entity
                 id="sofa1-button"
-                position="0 0.6 -2.5"
-                material="color: #f8f8f8; shader: flat;"
+                position="-0.2 0.3 -2.5"
+                material="color: #f8f8f8; shader: flat; side: double; opacity: 2;"
                 onclick="showPopup('sofa1')"
                 text="value: ?; align: center; color: black; baseline: center;">
             </a-entity>
@@ -48,8 +48,8 @@
             </a-gltf-model>
             <a-entity 
                 id="floor_lamp-button"
-                position="0.5 0.6 -2"
-                material="color: #f8f8f8; shader: flat;"
+                position="0.6 0.3 -2"
+                material="color: #f8f8f8; shader: flat; side: double; opacity: 0.9;"
                 onclick="showPopup('floor_lamp')"
                 text="value: ?; align: center; color: black; baseline: center;">
             </a-entity>
@@ -63,7 +63,7 @@
             </a-gltf-model>
             <a-entity
                 id="sillion1-button"
-                position="-1 0.6 -1.8"
+                position="-1.1 0.45 -1.8"
                 material="color: #f8f8f8; shader: flat;"
                 onclick="showPopup('sillion1')"
                 text="value: ?; align: center; color: black; baseline: center;">
@@ -71,7 +71,7 @@
         </a-entity>
 
         <!-- Set 2: Furniture with Interactive Buttons -->
-        <a-entity id="set2" position="0 0.5 -2" visible="false">
+        <a-entity id="set1" position="0 0.5 -2" visible="false">
             <!-- Scan Sofa -->
             <a-gltf-model 
                 src="assets/scan_sofa.glb" 
@@ -81,7 +81,7 @@
             </a-gltf-model>
             <a-entity
                 id="scan_sofa-button"            
-                position="0 0.6 -2.5"
+                position="0 0 -2.5"
                 material="color: #f8f8f8; shader: flat;"
                 onclick="showPopup('scan_sofa')"
                 text="value: ?; align: center; color: black; baseline: center;">
@@ -96,7 +96,7 @@
             </a-gltf-model>
             <a-entity
                 id="scan_low_table-button"            
-                position="0 0.6 -1.3"
+                position="0 0 -1.3"
                 material="color: #f8f8f8; shader: flat;"
                 onclick="showPopup('scan_low_table')"
                 text="value: ?; align: center; color: black; baseline: center;">
@@ -105,7 +105,7 @@
             <!-- Carpet -->
             <a-gltf-model 
                 src="assets/scan_carpet.glb" 
-                position="0 -0.5 -2" 
+                position="0 -0.5 -2"
                 scale="1.2 0.65 0.65" 
                 rotation="0 0 0">
             </a-gltf-model>
@@ -126,7 +126,7 @@
             </a-gltf-model>
             <a-entity
                 id="scan_couch-button"            
-                position="-1 0.6 -1.8" 
+                position="-1 0 -1.8"
                 material="color: #f8f8f8; shader: flat;"
                 onclick="showPopup('scan_couch')"
                 text="value: ?; align: center; color: black; baseline: center;">
@@ -141,7 +141,7 @@
             </a-gltf-model>
             <a-entity
                 id="floor-lamp-button"            
-                position="-0.75 0.6 -2" 
+                position="-0.75 0 -2"
                 material="color: #f8f8f8; shader: flat;"
                 onclick="showPopup('floor_lamp')"
                 text="value: ?; align: center; color: black; baseline: center;">
