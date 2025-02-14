@@ -26,7 +26,7 @@
         <a-entity id="set2" position="0 0.5 -2" visible="true">
             <!-- Sofa -->
             <a-gltf-model 
-                src="assets/sofa1.glb" 
+                src="assets/outdoor_couch.glb"
                 position="0 0 -2.5" 
                 scale="0.2 0.2 0.2" 
                 rotation="0 270 0">
@@ -39,7 +39,7 @@
                 text="value: ?; align: center; color: black; baseline: center;">
             </a-entity>
 
-            <!-- Floor Lamp -->
+            <!-- Floor Lamp
             <a-gltf-model 
                 src="assets/floor_lamp.glb" 
                 position="0.5 0 -2" 
@@ -54,7 +54,7 @@
                 text="value: ?; align: center; color: black; baseline: center;">
             </a-entity>
 
-            <!-- Chair -->
+             Chair
             <a-gltf-model 
                 src="assets/sillion1.glb" 
                 position="-1 0 -1.8" 
@@ -67,7 +67,7 @@
                 material="color: #f8f8f8; shader: flat;"
                 onclick="showPopup('sillion1')"
                 text="value: ?; align: center; color: black; baseline: center;">
-            </a-entity>
+            </a-entity> -->
         </a-entity>
 
         <!-- Set 1: Furniture with Interactive Buttons -->
@@ -146,24 +146,6 @@
                 onclick="showPopup('floor_lamp')"
                 text="value: ?; align: center; color: black; baseline: center;">
             </a-entity>            
-        </a-entity>
-
-        <!-- Set 3: Outdoor with Interactive Buttons -->
-        <a-entity id="set3" position="0 0.5 -2" visible="false">
-            <!-- Scan Sofa -->
-            <a-gltf-model
-                src="assets/outdoor_couch.glb"
-                position="0 0 -2.5"
-                scale="0.7 0.7 0.7"
-                rotation="0 0 0">
-            </a-gltf-model>
-            <a-entity
-                id="scan_sofa-button"
-                position="0 0.4 -2.5"
-                material="color: #f8f8f8; shader: flat;"
-                onclick="showPopup('scan_sofa')"
-                text="value: ?; align: center; color: black; baseline: center;">
-            </a-entity>
         </a-entity>
 
         <!-- Add Lights -->
