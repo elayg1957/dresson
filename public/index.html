@@ -33,7 +33,7 @@
             </a-gltf-model>
             <a-entity
                 id="sofa1-button"
-                position="-0.2 0.3 -2.5"
+                position="0 0.55 -2.5"
                 material="color: #f8f8f8; shader: flat; side: double; opacity: 2;"
                 onclick="showPopup('sofa1')"
                 text="value: ?; align: center; color: black; baseline: center;">
@@ -48,9 +48,24 @@
             </a-gltf-model>
             <a-entity
                 id="floor_lamp-button"
-                position="0.6 0.3 -2"
+                position="-0.01 -0.05 -2"
                 material="color: #f8f8f8; shader: flat; side: double; opacity: 0.9;"
                 onclick="showPopup('floor_lamp')"
+                text="value: ?; align: center; color: black; baseline: center;">
+            </a-entity>
+
+            <!-- Chair -->
+            <a-gltf-model
+                src="assets/outdoor_chair.glb"
+                position="15 0 1"
+                scale="0.5 0.5 0.5"
+                rotation="0 270 0">
+            </a-gltf-model>
+            <a-entity
+                id="sillion1-button"
+                position="-0.6 0.55 -1.8"
+                material="color: #f8f8f8; shader: flat;"
+                onclick="showPopup('sillion1')"
                 text="value: ?; align: center; color: black; baseline: center;">
             </a-entity>
         </a-entity>
