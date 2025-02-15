@@ -30,9 +30,7 @@
 
     "predeploy": "npm run build",
 
-    "deploy:prod": "gh-pages -d build",
-
-    "deploy:dev": "gh-pages -d build -b gh-pages -s dev",
+    "deploy": "gh-pages -d build",
 
     "start": "react-scripts start",
 
