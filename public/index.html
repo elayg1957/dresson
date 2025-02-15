@@ -26,7 +26,7 @@
         <a-entity id="set2" position="0 0.5 -2" visible="true">
             <!-- Sofa -->
             <a-gltf-model 
-                src="assets/outdoor_couch.glb"
+                src="assets/sofa1.glb"
                 position="0 0 -2.5"
                 scale="0.2 0.2 0.2"
                 rotation="0 270 0">
@@ -39,6 +39,35 @@
                 text="value: ?; align: center; color: black; baseline: center;">
             </a-entity>
 
+            <!-- Floor Lamp -->
+            <a-gltf-model
+                src="assets/floor_lamp.glb"
+                position="0.5 0 -2"
+                scale="0.05 0.05 0.05"
+                rotation="0 270 0">
+            </a-gltf-model>
+            <a-entity
+                id="floor_lamp-button"
+                position="0.6 0.3 -2"
+                material="color: #f8f8f8; shader: flat; side: double; opacity: 0.9;"
+                onclick="showPopup('floor_lamp')"
+                text="value: ?; align: center; color: black; baseline: center;">
+            </a-entity>
+
+            <!-- Chair -->
+            <a-gltf-model
+                src="assets/sillion1.glb"
+                position="-1 0 -1.8"
+                scale="0.3 0.3 0.3"
+                rotation="0 45 0">
+            </a-gltf-model>
+            <a-entity
+                id="sillion1-button"
+                position="-1.1 0.45 -1.8"
+                material="color: #f8f8f8; shader: flat;"
+                onclick="showPopup('sillion1')"
+                text="value: ?; align: center; color: black; baseline: center;">
+            </a-entity>
         </a-entity>
 
         <!-- Set 1: Furniture with Interactive Buttons -->
