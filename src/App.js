@@ -15,7 +15,7 @@ function App() {
 
   return (
     <>
-      {/* Left & Right Arrows */}
+      {/* Left & Right Arrows (Switch Sets) */}
       <div style={{ position: "absolute", bottom: "20px", left: "20px", zIndex: 100, width: "60px" }}>
         <button className="button-27" onClick={() => setShowSet1(false)}>←</button>
       </div>
@@ -24,33 +24,39 @@ function App() {
         <button className="button-27" onClick={() => setShowSet1(true)}>→</button>
       </div>
 
-      {/* React Controlled Question Mark Buttons for Set 1 & Set 2 */}
+      {/* Question Mark Buttons - Only One Per Furniture Item */}
       <div>
-        {/* Set 1 - Scan Furniture */}
-        <button className="question-button" style={{ position: "absolute", top: "40%", left: "50%", zIndex: 200 }}
-          onClick={() => alert("Scan Sofa Information")}>?</button>
+        {showSet1 ? (
+          <>
+            {/* Set 1 - Scan Furniture */}
+            <button className="question-button" style={{ position: "absolute", top: "40%", left: "50%", zIndex: 200 }}
+              onClick={() => alert("Scan Sofa Information")}>?</button>
 
-        <button className="question-button" style={{ position: "absolute", top: "50%", left: "45%", zIndex: 200 }}
-          onClick={() => alert("Scan Low Table Information")}>?</button>
+            <button className="question-button" style={{ position: "absolute", top: "50%", left: "45%", zIndex: 200 }}
+              onClick={() => alert("Scan Low Table Information")}>?</button>
 
-        <button className="question-button" style={{ position: "absolute", top: "60%", left: "50%", zIndex: 200 }}
-          onClick={() => alert("Scan Carpet Information")}>?</button>
+            <button className="question-button" style={{ position: "absolute", top: "60%", left: "50%", zIndex: 200 }}
+              onClick={() => alert("Scan Carpet Information")}>?</button>
 
-        <button className="question-button" style={{ position: "absolute", top: "40%", left: "30%", zIndex: 200 }}
-          onClick={() => alert("Scan Couch Information")}>?</button>
+            <button className="question-button" style={{ position: "absolute", top: "40%", left: "30%", zIndex: 200 }}
+              onClick={() => alert("Scan Couch Information")}>?</button>
 
-        <button className="question-button" style={{ position: "absolute", top: "45%", left: "20%", zIndex: 200 }}
-          onClick={() => alert("Floor Lamp Information")}>?</button>
+            <button className="question-button" style={{ position: "absolute", top: "45%", left: "20%", zIndex: 200 }}
+              onClick={() => alert("Floor Lamp Information")}>?</button>
+          </>
+        ) : (
+          <>
+            {/* Set 2 - Outdoor Furniture */}
+            <button className="question-button" style={{ position: "absolute", top: "50%", left: "70%", zIndex: 200 }}
+              onClick={() => alert("Outdoor Couch Information")}>?</button>
 
-        {/* Set 2 - Outdoor Furniture */}
-        <button className="question-button" style={{ position: "absolute", top: "50%", left: "70%", zIndex: 200 }}
-          onClick={() => alert("Outdoor Couch Information")}>?</button>
+            <button className="question-button" style={{ position: "absolute", top: "50%", left: "60%", zIndex: 200 }}
+              onClick={() => alert("Outdoor Chair Information")}>?</button>
 
-        <button className="question-button" style={{ position: "absolute", top: "50%", left: "60%", zIndex: 200 }}
-          onClick={() => alert("Outdoor Chair Information")}>?</button>
-
-        <button className="question-button" style={{ position: "absolute", top: "55%", left: "75%", zIndex: 200 }}
-          onClick={() => alert("Outdoor 2 Sofa Information")}>?</button>
+            <button className="question-button" style={{ position: "absolute", top: "55%", left: "75%", zIndex: 200 }}
+              onClick={() => alert("Outdoor 2 Sofa Information")}>?</button>
+          </>
+        )}
       </div>
 
       {/* Global Styles */}
