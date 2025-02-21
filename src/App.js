@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Modal from "./components/Modal";
 
 function App() {
   const [showSet1, setShowSet1] = useState(true);
@@ -16,40 +15,42 @@ function App() {
 
   return (
     <>
-      {/* Left Button (Show Set 2) */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "20px",
-          left: "20px",
-          zIndex: 100,
-          width: "60px"
-        }}
-      >
-        <button
-          className="button-27"
-          onClick={() => setShowSet1(false)}
-        >
-          ←
-        </button>
+      {/* Left & Right Arrows */}
+      <div style={{ position: "absolute", bottom: "20px", left: "20px", zIndex: 100, width: "60px" }}>
+        <button className="button-27" onClick={() => setShowSet1(false)}>←</button>
       </div>
 
-      {/* Right Button (Show Set 1) */}
-      <div
-        style={{
-          position: "absolute",
-          bottom: "20px",
-          right: "20px",
-          zIndex: 100,
-          width: "60px"
-        }}
-      >
-        <button
-          className="button-27"
-          onClick={() => setShowSet1(true)}
-        >
-          →
-        </button>
+      <div style={{ position: "absolute", bottom: "20px", right: "20px", zIndex: 100, width: "60px" }}>
+        <button className="button-27" onClick={() => setShowSet1(true)}>→</button>
+      </div>
+
+      {/* React Controlled Question Mark Buttons for Set 1 & Set 2 */}
+      <div>
+        {/* Set 1 - Scan Furniture */}
+        <button className="question-button" style={{ position: "absolute", top: "40%", left: "50%", zIndex: 200 }}
+          onClick={() => alert("Scan Sofa Information")}>?</button>
+
+        <button className="question-button" style={{ position: "absolute", top: "50%", left: "45%", zIndex: 200 }}
+          onClick={() => alert("Scan Low Table Information")}>?</button>
+
+        <button className="question-button" style={{ position: "absolute", top: "60%", left: "50%", zIndex: 200 }}
+          onClick={() => alert("Scan Carpet Information")}>?</button>
+
+        <button className="question-button" style={{ position: "absolute", top: "40%", left: "30%", zIndex: 200 }}
+          onClick={() => alert("Scan Couch Information")}>?</button>
+
+        <button className="question-button" style={{ position: "absolute", top: "45%", left: "20%", zIndex: 200 }}
+          onClick={() => alert("Floor Lamp Information")}>?</button>
+
+        {/* Set 2 - Outdoor Furniture */}
+        <button className="question-button" style={{ position: "absolute", top: "50%", left: "70%", zIndex: 200 }}
+          onClick={() => alert("Outdoor Couch Information")}>?</button>
+
+        <button className="question-button" style={{ position: "absolute", top: "50%", left: "60%", zIndex: 200 }}
+          onClick={() => alert("Outdoor Chair Information")}>?</button>
+
+        <button className="question-button" style={{ position: "absolute", top: "55%", left: "75%", zIndex: 200 }}
+          onClick={() => alert("Outdoor 2 Sofa Information")}>?</button>
       </div>
 
       {/* Global Styles */}
@@ -71,15 +72,30 @@ function App() {
             touch-action: manipulation;
             width: 100%;
           }
-
           .button-27:hover {
             box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
             transform: translateY(-2px);
           }
-
           .button-27:active {
             box-shadow: none;
             transform: translateY(0);
+          }
+
+          .question-button {
+            background-color: white;
+            color: black;
+            border: 2px solid black;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: bold;
+            width: 40px;
+            height: 40px;
+            margin: 10px;
+            cursor: pointer;
+          }
+          .question-button:hover {
+            background-color: black;
+            color: white;
           }
         `}
       </style>
