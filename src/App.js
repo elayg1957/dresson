@@ -1,17 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import ARViewer from "./components/ARViewer";
 
 function App() {
   const [showSet1, setShowSet1] = useState(true);
-
-  useEffect(() => {
-    const set1 = document.getElementById("set1");
-    const set2 = document.getElementById("set2");
-
-    if (set1 && set2) {
-      set1.setAttribute("visible", showSet1);
-      set2.setAttribute("visible", !showSet1);
-    }
-  }, [showSet1]);
 
   return (
     <>
@@ -24,40 +15,8 @@ function App() {
         <button className="button-27" onClick={() => setShowSet1(true)}>→</button>
       </div>
 
-      {/* Question Mark Buttons - Only One Per Furniture Item */}
-      <div>
-        {showSet1 ? (
-          <>
-            {/* Set 1 - Scan Furniture */}
-            <button className="question-button" style={{ position: "absolute", top: "40%", left: "50%", zIndex: 200 }}
-              onClick={() => alert("Scan Sofa Information")}>?</button>
-
-            <button className="question-button" style={{ position: "absolute", top: "50%", left: "45%", zIndex: 200 }}
-              onClick={() => alert("Scan Low Table Information")}>?</button>
-
-            <button className="question-button" style={{ position: "absolute", top: "60%", left: "50%", zIndex: 200 }}
-              onClick={() => alert("Scan Carpet Information")}>?</button>
-
-            <button className="question-button" style={{ position: "absolute", top: "40%", left: "30%", zIndex: 200 }}
-              onClick={() => alert("Scan Couch Information")}>?</button>
-
-            <button className="question-button" style={{ position: "absolute", top: "45%", left: "20%", zIndex: 200 }}
-              onClick={() => alert("Floor Lamp Information")}>?</button>
-          </>
-        ) : (
-          <>
-            {/* Set 2 - Outdoor Furniture */}
-            <button className="question-button" style={{ position: "absolute", top: "50%", left: "70%", zIndex: 200 }}
-              onClick={() => alert("Outdoor Couch Information")}>?</button>
-
-            <button className="question-button" style={{ position: "absolute", top: "50%", left: "60%", zIndex: 200 }}
-              onClick={() => alert("Outdoor Chair Information")}>?</button>
-
-            <button className="question-button" style={{ position: "absolute", top: "55%", left: "75%", zIndex: 200 }}
-              onClick={() => alert("Outdoor 2 Sofa Information")}>?</button>
-          </>
-        )}
-      </div>
+      {/* Render ARViewer (Handles WebXR & 3D Models) */}
+      <ARViewer showSet1={showSet1} />
 
       {/* Global Styles */}
       <style>
@@ -85,23 +44,6 @@ function App() {
           .button-27:active {
             box-shadow: none;
             transform: translateY(0);
-          }
-
-          .question-button {
-            background-color: white;
-            color: black;
-            border: 2px solid black;
-            border-radius: 50%;
-            font-size: 24px;
-            font-weight: bold;
-            width: 40px;
-            height: 40px;
-            margin: 10px;
-            cursor: pointer;
-          }
-          .question-button:hover {
-            background-color: black;
-            color: white;
           }
         `}
       </style>
