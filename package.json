@@ -4,9 +4,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@pmndrs/xr": "6.5.0",
     "@react-three/drei": "^10.0.0",
     "@react-three/fiber": "^9.0.4",
-    "@react-three/xr": "^6.6.5",
+    "@react-three/xr": "6.5.0",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",

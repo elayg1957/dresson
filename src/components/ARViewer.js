@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { ARButton, XR } from "@react-three/xr";
+import { XR } from "@react-three/xr"; // Removed ARButton
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
 function Model({ url, position, scale }) {
@@ -11,8 +11,32 @@ function Model({ url, position, scale }) {
 export default function ARViewer({ showSet1 }) {
   return (
     <>
-      {/* WebXR AR Button */}
-      <ARButton sessionInit={{ requiredFeatures: ['hit-test'] }} />
+      {/* Replace ARButton with a normal button */}
+      <button
+        style={{
+          position: "absolute",
+          top: "10px",
+          left: "50%",
+          transform: "translateX(-50%)",
+          padding: "10px 20px",
+          background: "black",
+          color: "white",
+          fontSize: "16px",
+          border: "none",
+          cursor: "pointer",
+        }}
+        onClick={() => {
+          if (navigator.xr) {
+            navigator.xr.requestSession("immersive-ar").then((session) => {
+              session.addEventListener("end", () => console.log("AR Session Ended"));
+            });
+          } else {
+            alert("WebXR not supported on this device.");
+          }
+        }}
+      >
+        Enter AR
+      </button>
 
       <Canvas>
         <XR>
