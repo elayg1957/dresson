@@ -1,67 +1,55 @@
-import React, { Suspense } from "react";
-import { Canvas } from "@react-three/fiber";
-import { XR } from "@react-three/xr";
-import { OrbitControls, useGLTF } from "@react-three/drei";
-
-function Model({ url, position, scale }) {
-  const { scene } = useGLTF(url, true);
-  return <primitive object={scene} position={position} scale={scale} />;
-}
+import React, { useEffect } from "react";
 
 export default function ARViewer({ showSet1 }) {
+  useEffect(() => {
+    // This script ensures buttons get geometry on load
+    const assignGeometry = () => {
+      const buttons = document.querySelectorAll('[id$="-button"]');
+      buttons.forEach(btn => {
+        btn.setAttribute("geometry", "primitive: circle; radius: 0.05");
+      });
+    };
+    window.addEventListener("DOMContentLoaded", assignGeometry);
+    return () => window.removeEventListener("DOMContentLoaded", assignGeometry);
+  }, []);
+
   return (
-    <>
-      <button
-        style={{
-          position: "absolute",
-          top: "10px",
-          left: "50%",
-          transform: "translateX(-50%)",
-          padding: "10px 20px",
-          background: "black",
-          color: "white",
-          fontSize: "16px",
-          border: "none",
-          cursor: "pointer",
-        }}
-        onClick={() => {
-          if (navigator.xr) {
-            navigator.xr.requestSession("immersive-ar").then((session) => {
-              session.addEventListener("end", () => console.log("AR Session Ended"));
-            });
-          } else {
-            alert("WebXR not supported on this device.");
-          }
-        }}
-      >
-        Enter AR
-      </button>
+    <a-scene
+      embedded
+      arjs="sourceType: webcam; debugUIEnabled: false;"
+      vr-mode-ui="enabled: false"
+      renderer="antialias: true; colorManagement: true; highRefreshRate: true;"
+    >
+      {/* Indoor set */}
+      {showSet1 ? (
+        <>
+          <a-gltf-model src="assets/scan_sofa.glb" position="0 0 -2.5" scale="0.7 0.7 0.7" />
+          <a-entity id="scan_sofa-button" position="0 0.4 -2.5" text="value: ?;" material="color: white" />
 
-      <Canvas>
-        <XR>
-          <ambientLight />
-          <pointLight position={[10, 10, 10]} />
+          <a-gltf-model src="assets/scan_low_table.glb" position="0 0 -1.3" scale="0.5 0.5 0.5" />
+          <a-entity id="scan_low_table-button" position="0 0 -1.3" text="value: ?;" material="color: white" />
 
-          <Suspense fallback={null}>
-            {showSet1 ? (
-              <>
-                <Model url="/dresson/assets/scan_sofa.glb" position={[0, 0, -2.5]} scale={[0.7, 0.7, 0.7]} />
-                <Model url="/dresson/assets/scan_low_table.glb" position={[0, 0, -1.3]} scale={[0.5, 0.5, 0.5]} />
-                <Model url="/dresson/assets/scan_carpet.glb" position={[0, -0.5, -2]} scale={[1.2, 0.65, 0.65]} />
-                <Model url="/dresson/assets/scan_couch.glb" position={[-1, 0, -1.8]} scale={[0.35, 0.35, 0.35]} />
-                <Model url="/dresson/assets/floor_lamp.glb" position={[-1, 0, -1]} scale={[0.3, 0.3, 0.3]} />
-              </>
-            ) : (
-              <>
-                <Model url="/dresson/assets/outdoor_couch.glb" position={[0, -1, -4]} scale={[0.6, 0.6, 0.6]} />
-                <Model url="/dresson/assets/outdoor_chair.glb" position={[1, 0, -1.5]} scale={[0.5, 0.5, 0.5]} />
-              </>
-            )}
-          </Suspense>
+          <a-gltf-model src="assets/scan_carpet.glb" position="0 -0.5 -2" scale="1.2 0.65 0.65" />
+          <a-entity id="scan_carpet-button" position="0 -1 -2" text="value: ?;" material="color: white" />
 
-          <OrbitControls />
-        </XR>
-      </Canvas>
-    </>
+          <a-gltf-model src="assets/scan_couch.glb" position="-1 0 -1.8" scale="0.35 0.35 0.35" />
+          <a-entity id="scan_couch-button" position="-1 0.3 -1.8" text="value: ?;" material="color: white" />
+
+          <a-gltf-model src="assets/floor_lamp.glb" position="-0.75 0 -2" scale="0.05 0.05 0.05" />
+          <a-entity id="floor-lamp-button" position="-0.75 0.5 -2" text="value: ?;" material="color: white" />
+        </>
+      ) : (
+        <>
+          <a-gltf-model src="assets/outdoor_couch.glb" position="0 -1 -4" scale="0.6 0.6 0.6" />
+          <a-entity id="outdoor_couch-button" position="-0.2 0.3 -2.5" text="value: ?;" material="color: white" />
+
+          <a-gltf-model src="assets/outdoor_chair.glb" position="1 0 -1.5" scale="0.5 0.5 0.5" />
+        </>
+      )}
+
+      <a-light type="directional" intensity="1" position="2 4 2"></a-light>
+      <a-light type="ambient" intensity="0.5"></a-light>
+      <a-camera />
+    </a-scene>
   );
 }
