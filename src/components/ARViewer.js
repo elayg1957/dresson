@@ -1,17 +1,16 @@
 import React, { Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { XR } from "@react-three/xr"; // Removed ARButton
+import { XR } from "@react-three/xr";
 import { OrbitControls, useGLTF } from "@react-three/drei";
 
 function Model({ url, position, scale }) {
-  const { scene } = useGLTF(url, true); // Enable Draco Compression
+  const { scene } = useGLTF(url, true);
   return <primitive object={scene} position={position} scale={scale} />;
 }
 
 export default function ARViewer({ showSet1 }) {
   return (
     <>
-      {/* Replace ARButton with a normal button */}
       <button
         style={{
           position: "absolute",
@@ -44,23 +43,18 @@ export default function ARViewer({ showSet1 }) {
           <pointLight position={[10, 10, 10]} />
 
           <Suspense fallback={null}>
-            {/* Show Set 1 (Scan Furniture) */}
-            {showSet1 && (
+            {showSet1 ? (
               <>
-                <Model url="assets/scan_sofa_draco.glb" position={[0, 0, -2.5]} scale={[0.7, 0.7, 0.7]} />
-                <Model url="assets/scan_low_table_draco.glb" position={[0, 0, -1.3]} scale={[0.5, 0.5, 0.5]} />
-                <Model url="assets/scan_carpet_draco.glb" position={[0, -0.5, -2]} scale={[1.2, 0.65, 0.65]} />
-                <Model url="assets/scan_couch_draco.glb" position={[-1, 0, -1.8]} scale={[0.35, 0.35, 0.35]} />
-                <Model url="assets/floor_lamp_draco.glb" position={[-1, 0, -1]} scale={[0.3, 0.3, 0.3]} />
+                <Model url="/dresson/assets/scan_sofa.glb" position={[0, 0, -2.5]} scale={[0.7, 0.7, 0.7]} />
+                <Model url="/dresson/assets/scan_low_table.glb" position={[0, 0, -1.3]} scale={[0.5, 0.5, 0.5]} />
+                <Model url="/dresson/assets/scan_carpet.glb" position={[0, -0.5, -2]} scale={[1.2, 0.65, 0.65]} />
+                <Model url="/dresson/assets/scan_couch.glb" position={[-1, 0, -1.8]} scale={[0.35, 0.35, 0.35]} />
+                <Model url="/dresson/assets/floor_lamp.glb" position={[-1, 0, -1]} scale={[0.3, 0.3, 0.3]} />
               </>
-            )}
-
-            {/* Show Set 2 (Outdoor Furniture) */}
-            {!showSet1 && (
+            ) : (
               <>
-                <Model url="assets/outdoor_couch_draco.glb" position={[0, -1, -4]} scale={[0.6, 0.6, 0.6]} />
-                <Model url="assets/outdoor_chair_draco.glb" position={[1, 0, -1.5]} scale={[0.5, 0.5, 0.5]} />
-                <Model url="assets/outdoor_2sofa_draco.glb" position={[0, 0, -2]} scale={[0.6, 0.6, 0.6]} />
+                <Model url="/dresson/assets/outdoor_couch.glb" position={[0, -1, -4]} scale={[0.6, 0.6, 0.6]} />
+                <Model url="/dresson/assets/outdoor_chair.glb" position={[1, 0, -1.5]} scale={[0.5, 0.5, 0.5]} />
               </>
             )}
           </Suspense>
