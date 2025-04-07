@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 
 export default function ARViewer({ showSet1 }) {
   useEffect(() => {
+    // This snippet just assigns geometry/text to the invisible "buttons"
+    // after the scene loads. You can remove if you don't need it anymore.
     const assignGeometry = () => {
       const buttons = document.querySelectorAll('[id$="-button"]');
       buttons.forEach(btn => {
@@ -10,25 +12,30 @@ export default function ARViewer({ showSet1 }) {
         btn.setAttribute("material", "color: white");
       });
     };
-    setTimeout(assignGeometry, 1000); // Delay to ensure models are loaded
+    setTimeout(assignGeometry, 1000);
   }, []);
 
   return (
     <a-scene
       embedded
-      arjs="sourceType: webcam; debugUIEnabled: false;"
+      /* The critical WebXR attribute for markerless AR: */
+      webxr="mode: 'immersive-ar'; referenceSpaceType: local-floor;"
+      xrwebgllighting="enabled: true"
+      /* Turn off default VR button */
       vr-mode-ui="enabled: false"
+      /* Some recommended renderer configs */
       renderer="antialias: true; colorManagement: true; highRefreshRate: true;"
     >
-      {/* Asset preloading */}
+      {/* Preload 3D models */}
       <a-assets timeout="10000">
-        <a-asset-item id="sofa" src="/dresson/assets/scan_sofa.glb" />
-        <a-asset-item id="lowtable" src="/dresson/assets/scan_low_table.glb" />
-        <a-asset-item id="carpet" src="/dresson/assets/scan_carpet.glb" />
-        <a-asset-item id="couch" src="/dresson/assets/scan_couch.glb" />
-        <a-asset-item id="lamp" src="/dresson/assets/floor_lamp.glb" />
-        <a-asset-item id="outdoor-couch" src="/dresson/assets/outdoor_couch.glb" />
-        <a-asset-item id="outdoor-chair" src="/dresson/assets/outdoor_chair.glb" />
+        {/* Adjust these paths if your .glb files are in a different location */}
+        <a-asset-item id="sofa" src="./assets/scan_sofa.glb" />
+        <a-asset-item id="lowtable" src="./assets/scan_low_table.glb" />
+        <a-asset-item id="carpet" src="./assets/scan_carpet.glb" />
+        <a-asset-item id="couch" src="./assets/scan_couch.glb" />
+        <a-asset-item id="lamp" src="./assets/floor_lamp.glb" />
+        <a-asset-item id="outdoor-couch" src="./assets/outdoor_couch.glb" />
+        <a-asset-item id="outdoor-chair" src="./assets/outdoor_chair.glb" />
       </a-assets>
 
       {/* Indoor set */}
@@ -50,6 +57,7 @@ export default function ARViewer({ showSet1 }) {
           <a-entity id="floor_lamp-button" position="-0.75 0.5 -2" />
         </>
       ) : (
+        /* Outdoor set */
         <>
           <a-gltf-model src="#outdoor-couch" position="0 0 -2.5" scale="2 2 2" />
           <a-entity id="outdoor_couch-button" position="0 1 -2.5" />
@@ -59,9 +67,12 @@ export default function ARViewer({ showSet1 }) {
         </>
       )}
 
+      {/* Basic Lighting */}
       <a-light type="directional" intensity="1" position="2 4 2"></a-light>
       <a-light type="ambient" intensity="0.5"></a-light>
-      <a-camera />
+
+      {/* Standard camera for A-Frame WebXR */}
+      <a-entity camera />
     </a-scene>
   );
 }

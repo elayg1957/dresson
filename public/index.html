@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>React WebAR</title>
-
-    <!-- Load A-Frame and AR.js -->
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/ar.js@1.7.2/aframe/build/aframe-ar.min.js"></script>
+  <meta charset="UTF-8" />
+  <title>React WebAR (Markerless)</title>
+  <!-- Use A-Frame 1.4.1 (or newer) -->
+  <script src="https://aframe.io/releases/1.4.1/aframe.min.js"></script>
+  <!-- We do NOT include ar.js here, because we’re doing markerless WebXR -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 </head>
 <body style="margin: 0; overflow: hidden;">
-    <div id="root"></div>
+  <!-- React will render into #root -->
+  <div id="root"></div>
 </body>
 </html>

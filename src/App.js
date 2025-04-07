@@ -6,16 +6,37 @@ function App() {
 
   return (
     <>
-      {/* Left & Right Arrows (Switch Sets) */}
-      <div style={{ position: "absolute", bottom: "20px", left: "20px", zIndex: 100, width: "60px" }}>
-        <button className="button-27" onClick={() => setShowSet1(false)}>←</button>
+      {/* Left arrow (switch to Outdoor Set) */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "20px",
+          left: "20px",
+          zIndex: 100,
+          width: "60px",
+        }}
+      >
+        <button className="button-27" onClick={() => setShowSet1(false)}>
+          ←
+        </button>
       </div>
 
-      <div style={{ position: "absolute", bottom: "20px", right: "20px", zIndex: 100, width: "60px" }}>
-        <button className="button-27" onClick={() => setShowSet1(true)}>→</button>
+      {/* Right arrow (switch to Indoor Set) */}
+      <div
+        style={{
+          position: "absolute",
+          bottom: "20px",
+          right: "20px",
+          zIndex: 100,
+          width: "60px",
+        }}
+      >
+        <button className="button-27" onClick={() => setShowSet1(true)}>
+          →
+        </button>
       </div>
 
-      {/* Render ARViewer (Handles WebXR & 3D Models) */}
+      {/* Render the AR scene */}
       <ARViewer showSet1={showSet1} />
 
       {/* Global Styles */}
