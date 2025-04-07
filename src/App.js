@@ -6,7 +6,7 @@ function App() {
 
   return (
     <>
-      {/* Left arrow (switch to Outdoor Set) */}
+      {/* Left arrow (switch to Outdoor) */}
       <div
         style={{
           position: "absolute",
@@ -21,7 +21,7 @@ function App() {
         </button>
       </div>
 
-      {/* Right arrow (switch to Indoor Set) */}
+      {/* Right arrow (switch to Indoor) */}
       <div
         style={{
           position: "absolute",
@@ -36,7 +36,7 @@ function App() {
         </button>
       </div>
 
-      {/* Render the AR scene */}
+      {/* The AR Scene */}
       <ARViewer showSet1={showSet1} />
 
       {/* Global Styles */}
