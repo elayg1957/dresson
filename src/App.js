@@ -1,43 +1,55 @@
-import React, { useState } from "react";
-import ARViewer from "./components/ARViewer";
+import React, { useState, useEffect } from "react";
 
 function App() {
   const [showSet1, setShowSet1] = useState(true);
 
+  useEffect(() => {
+    const set1 = document.getElementById("set1");
+    const set2 = document.getElementById("set2");
+
+    if (set1 && set2) {
+      set1.setAttribute("visible", showSet1);
+      set2.setAttribute("visible", !showSet1);
+    }
+  }, [showSet1]);
+
   return (
     <>
-      {/* Left arrow (switch to Outdoor) */}
+      {/* Left Button (Show Set 2) */}
       <div
         style={{
           position: "absolute",
           bottom: "20px",
           left: "20px",
           zIndex: 100,
-          width: "60px",
+          width: "60px"
         }}
       >
-        <button className="button-27" onClick={() => setShowSet1(false)}>
+        <button
+          className="button-27"
+          onClick={() => setShowSet1(false)}
+        >
           ←
         </button>
       </div>
 
-      {/* Right arrow (switch to Indoor) */}
+      {/* Right Button (Show Set 1) */}
       <div
         style={{
           position: "absolute",
           bottom: "20px",
           right: "20px",
           zIndex: 100,
-          width: "60px",
+          width: "60px"
         }}
       >
-        <button className="button-27" onClick={() => setShowSet1(true)}>
+        <button
+          className="button-27"
+          onClick={() => setShowSet1(true)}
+        >
           →
         </button>
       </div>
-
-      {/* The AR Scene */}
-      <ARViewer showSet1={showSet1} />
 
       {/* Global Styles */}
       <style>
@@ -58,10 +70,12 @@ function App() {
             touch-action: manipulation;
             width: 100%;
           }
+
           .button-27:hover {
             box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
             transform: translateY(-2px);
           }
+
           .button-27:active {
             box-shadow: none;
             transform: translateY(0);
